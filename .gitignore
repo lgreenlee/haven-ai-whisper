@@ -1,0 +1,20 @@
+# whisper.cpp source (cloned by build.sh)
+whisper.cpp/
+
+# Built binary
+bin/
+
+# Model files (downloaded by models/download.sh)
+models/*.bin
+models/*.gguf
+models/*.ggml
+
+# Docker build context artifacts
+docker/*.bin
+
+# Logs
+logs/
+*.log
+
+# Environment overrides
+config/server.local.env

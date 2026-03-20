@@ -1,0 +1,21 @@
+services:
+  whisper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: haven-ai-whisper:latest
+    container_name: haven-ai-whisper
+    restart: unless-stopped
+    ports:
+      - "8178:8178"
+    volumes:
+      - ../models:/models:ro
+    env_file:
+      - ../config/server.env
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

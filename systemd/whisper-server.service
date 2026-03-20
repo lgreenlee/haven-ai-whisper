@@ -1,0 +1,34 @@
+[Unit]
+Description=haven-ai whisper.cpp HTTP server (large-v3)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=lgreenlee
+Group=lgreenlee
+
+WorkingDirectory=/home/lgreenlee/software/haven-ai-whisper
+
+EnvironmentFile=/home/lgreenlee/software/haven-ai-whisper/config/server.env
+
+ExecStart=/home/lgreenlee/software/haven-ai-whisper/bin/whisper-server \
+    --model ${WHISPER_MODEL} \
+    --host ${WHISPER_HOST} \
+    --port ${WHISPER_PORT} \
+    --threads ${WHISPER_THREADS} \
+    --processors ${WHISPER_PROCESSORS} \
+    --beam-size ${WHISPER_BEAM_SIZE} \
+    --language ${WHISPER_LANGUAGE}
+
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=haven-ai-whisper
+
+# Allow large model loads
+TimeoutStartSec=120
+
+[Install]
+WantedBy=multi-user.target
