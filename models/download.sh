@@ -2,7 +2,7 @@
 # Download whisper large-v3 model in GGML format for whisper.cpp
 set -e
 
-MODELS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MODELS_DIR="/var/haven-ai/data/models"
 MODEL_NAME="ggml-large-v3"
 MODEL_FILE="${MODEL_NAME}.bin"
 MODEL_PATH="${MODELS_DIR}/${MODEL_FILE}"

@@ -9,7 +9,7 @@ services:
     ports:
       - "8178:8178"
     volumes:
-      - ../models:/models:ro
+      - /var/haven-ai/data/models:/models:ro
     env_file:
       - ../config/server.env
     deploy:

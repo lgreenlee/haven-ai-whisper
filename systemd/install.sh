@@ -8,7 +8,7 @@ SYSTEMD_DIR="/etc/systemd/system"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(dirname "${SCRIPT_DIR}")"
 BIN="${REPO_DIR}/bin/whisper-server"
-MODEL="${REPO_DIR}/models/ggml-large-v3.bin"
+MODEL="/var/haven-ai/data/models/ggml-large-v3.bin"
 
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
